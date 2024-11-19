@@ -73,8 +73,7 @@ class _GameWidgetState extends State<GameWidget>
           // Special logic so we don't need to pollute the update
           // function with this from the start.
           if (widget.world.ball.x > widget.size.width) {
-            widget.world.ball.x = 0;
-            widget.world.ball.y = 100;
+            widget.world.reset();
           }
         }));
     _loaded = true;

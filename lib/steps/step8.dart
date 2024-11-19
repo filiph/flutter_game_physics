@@ -3,14 +3,14 @@
 import 'package:flutter_game_physics/world.dart';
 import 'package:vector_math/vector_math_64.dart';
 
-class Step7 extends World {
+class Step8 extends World {
   final Cannonball ball = Cannonball();
 
   void update(double dt) {
-    ball.position = ball.position + ball.velocity * dt;
-
-    final acceleration = mousePosition - ball.position;
+    final acceleration = (mousePosition - ball.position);
     ball.velocity = ball.velocity + acceleration * dt;
+
+    ball.position = ball.position + ball.velocity * dt;
   }
 }
 

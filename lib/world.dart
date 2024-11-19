@@ -6,6 +6,11 @@ abstract class World {
   final Vector2 mousePosition = Vector2(0, 100);
 
   void update(double dt);
+
+  void reset() {
+    ball.x = 0;
+    ball.y = 100;
+  }
 }
 
 abstract class CannonballBase {

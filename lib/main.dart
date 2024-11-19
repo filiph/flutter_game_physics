@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game_physics/game_widget.dart';
-import 'package:flutter_game_physics/steps/step6.dart';
+import 'package:flutter_game_physics/steps/step9.dart';
 import 'package:vector_math/vector_math_64.dart' hide Colors;
 
 void main() {
@@ -40,7 +40,7 @@ class MyBasicGame extends StatelessWidget {
                 onHover: (event) => mouseOffset.value =
                     Vector2(event.localPosition.dx, event.localPosition.dy),
                 child: GameWidget(
-                  world: Step6(),
+                  world: Step9(),
                   size: size,
                   mouseOffset: mouseOffset,
                 ),
