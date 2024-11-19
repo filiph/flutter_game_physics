@@ -2,15 +2,12 @@
 
 import 'package:flutter_game_physics/world.dart';
 
-class Step2 extends World {
+class Step3 extends World {
   final Cannonball ball = Cannonball();
 
   void update(double dt) {
-    _update();
-  }
-
-  void _update() {
-    ball.x = ball.x + 1;
+    const speed = 100.0;
+    ball.x = ball.x + speed * dt;
   }
 }
 

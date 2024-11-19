@@ -30,8 +30,8 @@ class _GameWidgetState extends State<GameWidget>
       children: [
         const SizedBox.expand(),
         Positioned(
-          left: widget.world.cannonball.x,
-          top: widget.world.cannonball.y,
+          left: widget.world.ball.x,
+          top: widget.world.ball.y,
           child: Image.asset(
             'assets/cannon ball_2.png',
             scale: 5,
@@ -62,8 +62,9 @@ class _GameWidgetState extends State<GameWidget>
 
           // Special logic so we don't need to pollute the update
           // function with this from the start.
-          if (widget.world.cannonball.x > widget.size.width) {
-            widget.world.cannonball.x = 0;
+          if (widget.world.ball.x > widget.size.width) {
+            widget.world.ball.x = 0;
+            widget.world.ball.y = 100;
           }
         }));
     _loaded = true;

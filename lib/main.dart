@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game_physics/game_widget.dart';
-import 'package:flutter_game_physics/steps/step2.dart';
+import 'package:flutter_game_physics/steps/step4.dart';
 
 void main() {
   runApp(const MyBasicGame());
@@ -34,7 +34,7 @@ class MyBasicGame extends StatelessWidget {
             child: SizedBox.fromSize(
               size: size,
               child: GameWidget(
-                world: Step2(),
+                world: Step4(),
                 size: size,
               ),
             ),
