@@ -3,15 +3,16 @@
 import 'package:flutter_game_physics/world.dart';
 import 'package:vector_math/vector_math.dart';
 
-class Step4 extends World {
+class Step6 extends World {
   final Cannonball ball = Cannonball();
 
   void update(double dt) {
-    const speed = 100.0;
-    ball.position = ball.position + Vector2(speed * dt, 0);
+    ball.position = ball.position + ball.velocity * dt;
   }
 }
 
 class Cannonball extends CannonballVectorBase {
   Vector2 position = Vector2(0, 100);
+
+  Vector2 velocity = Vector2(99, 20);
 }
