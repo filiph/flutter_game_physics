@@ -1,9 +1,13 @@
+import 'dart:ui';
+
 import 'package:vector_math/vector_math_64.dart';
 
 abstract class World {
   CannonballBase get ball;
 
   final Vector2 mousePosition = Vector2(0, 100);
+
+  Size size = const Size(100, 100);
 
   void update(double dt);
 

@@ -64,6 +64,7 @@ class _GameWidgetState extends State<GameWidget>
     _controller!.repeat();
     _controller!.addListener(() => setState(() {
           widget.world.mousePosition.setFrom(widget.mouseOffset.value);
+          widget.world.size = widget.size;
 
           final now = DateTime.now();
           final dt = now.difference(_lastTime).inMilliseconds / 1000.0;
@@ -72,7 +73,8 @@ class _GameWidgetState extends State<GameWidget>
 
           // Special logic so we don't need to pollute the update
           // function with this from the start.
-          if (widget.world.ball.x > widget.size.width) {
+          if (widget.world.ball.x - widget.world.ball.size / 2 >
+              widget.size.width) {
             widget.world.reset();
           }
         }));
