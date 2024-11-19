@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game_physics/world.dart';
+import 'package:vector_math/vector_math_64.dart';
 
 class GameWidget extends StatefulWidget {
   final Size size;
 
   final World world;
 
-  const GameWidget({required this.world, required this.size, super.key});
+  final ValueNotifier<Vector2> mouseOffset;
+
+  const GameWidget({
+    required this.world,
+    required this.size,
+    required this.mouseOffset,
+    super.key,
+  });
 
   @override
   State<GameWidget> createState() => _GameWidgetState();
@@ -55,6 +63,8 @@ class _GameWidgetState extends State<GameWidget>
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _controller!.repeat();
     _controller!.addListener(() => setState(() {
+          widget.world.mousePosition.setFrom(widget.mouseOffset.value);
+
           final now = DateTime.now();
           final dt = now.difference(_lastTime).inMilliseconds / 1000.0;
           widget.world.update(dt);

@@ -1,7 +1,7 @@
 // ignore_for_file: annotate_overrides
 
 import 'package:flutter_game_physics/world.dart';
-import 'package:vector_math/vector_math.dart';
+import 'package:vector_math/vector_math_64.dart';
 
 class Step6 extends World {
   final Cannonball ball = Cannonball();

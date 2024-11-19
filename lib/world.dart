@@ -1,7 +1,9 @@
-import 'package:vector_math/vector_math.dart';
+import 'package:vector_math/vector_math_64.dart';
 
 abstract class World {
   CannonballBase get ball;
+
+  final Vector2 mousePosition = Vector2.zero();
 
   void update(double dt);
 }
