@@ -38,8 +38,8 @@ class _GameWidgetState extends State<GameWidget>
       children: [
         const SizedBox.expand(),
         Positioned(
-          left: widget.world.ball.x,
-          top: widget.world.ball.y,
+          left: widget.world.ball.x - widget.world.ball.size / 2,
+          top: widget.world.ball.y - widget.world.ball.size / 2,
           child: Image.asset(
             'assets/cannon ball_2.png',
             scale: 5,

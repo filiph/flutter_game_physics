@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyBasicGame extends StatelessWidget {
-  final ValueNotifier<Vector2> mouseOffset = ValueNotifier(Vector2.zero());
+  final ValueNotifier<Vector2> mouseOffset = ValueNotifier(Vector2(0, 100));
 
   final Size size = const Size(400, 300);
 
@@ -38,7 +38,7 @@ class MyBasicGame extends StatelessWidget {
               size: size,
               child: MouseRegion(
                 onHover: (event) => mouseOffset.value =
-                    Vector2(event.position.dx, event.position.dy),
+                    Vector2(event.localPosition.dx, event.localPosition.dy),
                 child: GameWidget(
                   world: Step6(),
                   size: size,
