@@ -14,6 +14,10 @@ abstract class World {
   void reset() {
     ball.x = 0;
     ball.y = 100;
+
+    if (ball is CannonballVectorBase2) {
+      (ball as CannonballVectorBase2).velocity.setValues(50, 0);
+    }
   }
 }
 
@@ -43,4 +47,8 @@ abstract class CannonballVectorBase extends CannonballBase {
 
   @override
   set y(double y) => position.y = y;
+}
+
+abstract class CannonballVectorBase2 extends CannonballVectorBase {
+  Vector2 get velocity;
 }

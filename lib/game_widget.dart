@@ -63,19 +63,22 @@ class _GameWidgetState extends State<GameWidget>
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _controller!.repeat();
     _controller!.addListener(() => setState(() {
-          widget.world.mousePosition.setFrom(widget.mouseOffset.value);
-          widget.world.size = widget.size;
+          final world = widget.world;
+          world.mousePosition.setFrom(widget.mouseOffset.value);
+          world.size = widget.size;
 
           final now = DateTime.now();
           final dt = now.difference(_lastTime).inMilliseconds / 1000.0;
-          widget.world.update(dt);
+          world.update(dt);
           _lastTime = now;
 
           // Special logic so we don't need to pollute the update
           // function with this from the start.
-          if (widget.world.ball.x - widget.world.ball.size / 2 >
-              widget.size.width) {
-            widget.world.reset();
+          if (world.ball.x - world.ball.size / 2 > widget.size.width) {
+            world.reset();
+          }
+          if (world.ball.x < -world.ball.size) {
+            world.reset();
           }
         }));
     _loaded = true;
