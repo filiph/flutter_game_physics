@@ -12,15 +12,10 @@ class Step9 extends World {
 
     ball.position = ball.position + ball.velocity * dt;
   }
-
-  void reset() {
-    super.reset();
-    ball.velocity = Vector2(100, 0);
-  }
 }
 
-class Cannonball extends CannonballVectorBase {
+class Cannonball extends CannonballVectorBase2 {
   Vector2 position = Vector2(0, 100);
 
-  Vector2 velocity = Vector2(100, 0);
+  Vector2 velocity = Vector2(50, 0);
 }
