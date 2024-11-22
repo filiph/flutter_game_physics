@@ -52,6 +52,8 @@ class _MyBasicGameState extends State<MyBasicGame> {
 
   final Size size = const Size(400, 300);
 
+  final double scale = 2;
+
   int stepIndex = 0;
 
   @override
@@ -88,19 +90,22 @@ class _MyBasicGameState extends State<MyBasicGame> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.white,
-              ),
+                  color: Colors.white,
+                  width: 5,
+                  strokeAlign: BorderSide.strokeAlignOutside),
             ),
             child: SizedBox.fromSize(
-              size: size,
+              size: size * 2,
               child: GestureDetector(
                 onTap: () => mouseClicked.value = true,
                 child: MouseRegion(
                   onHover: (event) => mouseOffset.value =
-                      Vector2(event.localPosition.dx, event.localPosition.dy),
+                      Vector2(event.localPosition.dx, event.localPosition.dy) /
+                          scale,
                   child: GameWidget(
                     world: step,
                     size: size,
+                    scale: scale,
                     mouseOffset: mouseOffset,
                     mouseClicked: mouseClicked,
                   ),

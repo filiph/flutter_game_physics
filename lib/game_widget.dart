@@ -5,6 +5,8 @@ import 'package:vector_math/vector_math_64.dart';
 class GameWidget extends StatefulWidget {
   final Size size;
 
+  final double scale;
+
   final World world;
 
   final ValueNotifier<Vector2> mouseOffset;
@@ -14,6 +16,7 @@ class GameWidget extends StatefulWidget {
   const GameWidget({
     required this.world,
     required this.size,
+    required this.scale,
     required this.mouseOffset,
     required this.mouseClicked,
     super.key,
@@ -37,15 +40,17 @@ class _GameWidgetState extends State<GameWidget>
       return const Center(child: Text('Loading...'));
     }
 
+    final scale = widget.scale;
+
     return Stack(
       children: [
         const SizedBox.expand(),
         Positioned(
-          left: widget.world.ball.x - widget.world.ball.size / 2,
-          top: widget.world.ball.y - widget.world.ball.size / 2,
+          left: (widget.world.ball.x - widget.world.ball.size / 2) * scale,
+          top: (widget.world.ball.y - widget.world.ball.size / 2) * scale,
           child: Image.asset(
             'assets/cannon ball_2.png',
-            scale: 5,
+            scale: 5 / scale,
           ),
         ),
       ],
