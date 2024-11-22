@@ -24,20 +24,18 @@ abstract class World {
 }
 
 // ignore: camel_case_types
-abstract class World_ extends World {
+abstract class World1 extends World {
   @override
-  void update(double dt) => update_();
+  void update(double dt) => update1();
 
-  void update_();
+  void update1();
 }
 
 abstract class CannonballBase {
   double get x;
-
   set x(double x);
 
   double get y;
-
   set y(double y);
 
   final double size = 248 / 5;

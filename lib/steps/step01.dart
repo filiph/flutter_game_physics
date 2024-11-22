@@ -2,7 +2,7 @@
 
 import 'package:flutter_game_physics/world.dart';
 
-class Step1 extends World_ {
+class Step1 extends World1 {
   final Cannonball ball = Cannonball();
 
   void update_() {
