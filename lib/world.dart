@@ -23,6 +23,14 @@ abstract class World {
   }
 }
 
+// ignore: camel_case_types
+abstract class World_ extends World {
+  @override
+  void update(double dt) => update_();
+
+  void update_();
+}
+
 abstract class CannonballBase {
   double get x;
 
