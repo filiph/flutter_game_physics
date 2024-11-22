@@ -14,7 +14,6 @@ class Step14 extends World {
     ball.velocity = ball.velocity + acceleration * dt;
 
     if (mouseClicked) {
-      print('impulse');
       final impulse = (ball.position - mousePosition)
         ..normalize()
         ..scale(10000);
