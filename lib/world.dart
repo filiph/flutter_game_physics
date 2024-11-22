@@ -7,6 +7,8 @@ abstract class World {
 
   final Vector2 mousePosition = Vector2(0, 100);
 
+  bool mouseClicked = false;
+
   Size size = const Size(100, 100);
 
   void update(double dt);

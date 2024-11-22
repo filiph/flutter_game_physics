@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game_physics/game_widget.dart';
-import 'package:flutter_game_physics/steps/step13.dart';
+import 'package:flutter_game_physics/steps/step14.dart';
 import 'package:vector_math/vector_math_64.dart' hide Colors;
 
 void main() {
@@ -9,6 +9,8 @@ void main() {
 
 class MyBasicGame extends StatelessWidget {
   final ValueNotifier<Vector2> mouseOffset = ValueNotifier(Vector2(0, 100));
+
+  final ValueNotifier<bool> mouseClicked = ValueNotifier(false);
 
   final Size size = const Size(400, 300);
 
@@ -36,13 +38,17 @@ class MyBasicGame extends StatelessWidget {
             ),
             child: SizedBox.fromSize(
               size: size,
-              child: MouseRegion(
-                onHover: (event) => mouseOffset.value =
-                    Vector2(event.localPosition.dx, event.localPosition.dy),
-                child: GameWidget(
-                  world: Step13(),
-                  size: size,
-                  mouseOffset: mouseOffset,
+              child: GestureDetector(
+                onTap: () => mouseClicked.value = true,
+                child: MouseRegion(
+                  onHover: (event) => mouseOffset.value =
+                      Vector2(event.localPosition.dx, event.localPosition.dy),
+                  child: GameWidget(
+                    world: Step14(),
+                    size: size,
+                    mouseOffset: mouseOffset,
+                    mouseClicked: mouseClicked,
+                  ),
                 ),
               ),
             ),

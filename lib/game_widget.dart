@@ -9,10 +9,13 @@ class GameWidget extends StatefulWidget {
 
   final ValueNotifier<Vector2> mouseOffset;
 
+  final ValueNotifier<bool> mouseClicked;
+
   const GameWidget({
     required this.world,
     required this.size,
     required this.mouseOffset,
+    required this.mouseClicked,
     super.key,
   });
 
@@ -65,12 +68,14 @@ class _GameWidgetState extends State<GameWidget>
     _controller!.addListener(() => setState(() {
           final world = widget.world;
           world.mousePosition.setFrom(widget.mouseOffset.value);
+          world.mouseClicked = widget.mouseClicked.value;
           world.size = widget.size;
 
           final now = DateTime.now();
           final dt = now.difference(_lastTime).inMilliseconds / 1000.0;
           world.update(dt);
           _lastTime = now;
+          widget.mouseClicked.value = false;
 
           // Special logic so we don't need to pollute the update
           // function with this from the start.
